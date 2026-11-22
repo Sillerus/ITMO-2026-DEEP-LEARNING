@@ -1,0 +1,97 @@
+{
+  "track": "nlp",
+  "model": "cointegrated/rubert-tiny2",
+  "revision": "e8ed3b0c8bbf4fb6984c3de043bf7d2f4e5969ae",
+  "dataset": "RCC-MSU/collection3",
+  "classes": [
+    "LOC",
+    "ORG",
+    "PER"
+  ],
+  "n_train": 9301,
+  "n_val": 2153,
+  "n_test": 1922,
+  "params_total": 29098303,
+  "baseline": {
+    "majority": {
+      "f1_micro": 0.5613437195715676,
+      "f1_macro": 0.5785510074917143,
+      "precision": 0.5625762381068553,
+      "recall": 0.5601165897498178
+    },
+    "random_head": {
+      "f1_micro": 0.0380824055031558,
+      "f1_macro": 0.035254710988307,
+      "precision": 0.022296034876479135,
+      "recall": 0.13043478260869565
+    }
+  },
+  "final": {
+    "f1_micro": 0.9331359486799901,
+    "f1_macro": 0.9309174080188322,
+    "precision": 0.9213154689403167,
+    "recall": 0.9452636840789802,
+    "token_f1": 0.9559868780754509,
+    "per_type": {
+      "LOC": {
+        "precision": 0.947324414715719,
+        "recall": 0.9642553191489361,
+        "f1-score": 0.9557148882328131,
+        "support": 1175
+      },
+      "ORG": {
+        "precision": 0.850381679389313,
+        "recall": 0.8869426751592356,
+        "f1-score": 0.868277474668745,
+        "support": 1256
+      },
+      "PER": {
+        "precision": 0.9599749843652282,
+        "recall": 0.9777070063694268,
+        "f1-score": 0.9687598611549384,
+        "support": 1570
+      }
+    },
+    "validation": {
+      "f1_micro": 0.9323775388291518,
+      "f1_macro": 0.9302210664658105,
+      "precision": 0.9174700211615331,
+      "recall": 0.9477775078940976,
+      "token_f1": 0.9537935748462064
+    }
+  },
+  "ablation": {
+    "setting": "freeze",
+    "split": "validation",
+    "baseline_run": {
+      "f1_micro": 0.9323775388291518,
+      "f1_macro": 0.9302210664658105,
+      "precision": 0.9174700211615331,
+      "recall": 0.9477775078940976,
+      "token_f1": 0.9537935748462064,
+      "train_sec": 64.49564719,
+      "trainable_params": 29098303,
+      "final_eval_loss": 0.05209653452038765
+    },
+    "ablated_run": {
+      "f1_micro": 0.6972750171742615,
+      "f1_macro": 0.6919070066905624,
+      "precision": 0.6595191682910981,
+      "recall": 0.7396162254068497,
+      "token_f1": 0.7661727502710517,
+      "train_sec": 32.57362366799998,
+      "trainable_params": 2191,
+      "final_eval_loss": 0.1643722504377365
+    }
+  },
+  "errors": {
+    "correct": 3902,
+    "boundary": 148,
+    "type": 44,
+    "missed": 23,
+    "spurious": 127
+  },
+  "device": "Tesla T4",
+  "train_time_sec": 64.49564719,
+  "fast_mode": false
+}
